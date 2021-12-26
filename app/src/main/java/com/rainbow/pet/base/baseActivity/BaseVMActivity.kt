@@ -1,11 +1,12 @@
-package com.rainbow.pet.base
+package com.rainbow.pet.base.baseActivity
 
 import android.os.Bundle
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.LifecycleObserver
+import com.rainbow.pet.base.BaseViewModel
 
-abstract class BaseVMActivity<VM : BaseViewModel, VBD : ViewDataBinding> : BaseActivity<VBD>(), LifecycleObserver {
-    abstract var mViewModel: VM
+abstract class BaseVMActivity<VM : BaseViewModel, VDB : ViewDataBinding> : BaseVDBActivity<VDB>(), LifecycleObserver {
+    abstract val mViewModel: VM
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

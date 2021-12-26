@@ -1,4 +1,4 @@
-package com.rainbow.pet.base
+package com.rainbow.pet.base.baseActivity
 
 import android.app.Activity
 import android.content.res.Resources
@@ -12,9 +12,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import com.rainbow.pet.R
 
-abstract class BaseActivity<VDB : ViewDataBinding> : AppCompatActivity() {
-    private var mResources: Resources? = null
-    lateinit var mBinding: VDB
+open class BaseActivity : AppCompatActivity() {
+
 
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
@@ -25,16 +24,11 @@ abstract class BaseActivity<VDB : ViewDataBinding> : AppCompatActivity() {
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
         window.decorView.systemUiVisibility = window.decorView.systemUiVisibility or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
 
-        mBinding = DataBindingUtil.setContentView(this as Activity, getLayoutResId())
-
     }
 
 
 
-    /**
-     *  Override this method in order to u can use dataBinding
-     * */
-    abstract fun getLayoutResId() : Int
+
 
 
 
